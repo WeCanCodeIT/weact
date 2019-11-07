@@ -1,10 +1,12 @@
 const Weact = require("./libs/weact");
+const MainHeader = require("./components/MainHeader")
 // const wavbar = require("./components/navbar");
 
 const appContainer = document.querySelector(".app");
 const footer = document.createElement("footer");
 const queenBee = document.createElement("img");
 const beeButton = document.createElement("button");
+
 
 const header = Weact.cweate(
   "h2",

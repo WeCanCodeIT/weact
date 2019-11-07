@@ -8,12 +8,13 @@
 }
 
 body {
+  background-color: darkgray;
   background-image: url("./img/dark-honeycomb.png");
 }
 
-.button {
+/* .button {
   
-}
+} */
 
 .footer {
   background-image: "./img/hiclipart.com-id_qnvkp.png";
@@ -29,7 +30,7 @@ body {
 .navbar {
   position: sticky;
   top: 0;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.719);
   font-family: 'Poiret One', sans-serif;
   padding: .8rem;
 }

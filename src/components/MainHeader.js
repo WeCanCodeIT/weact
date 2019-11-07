@@ -1,7 +1,10 @@
 const Weact = require("../libs/weact");
-const button = require("./button");
-const wavbar = require("./wavbar");
+const Button = require("./Button");
+const wavbar = require("./navbar");
 
+// *********************************************************** //
+// What in the FUCK is This styling doing here?!?!!!? DAfuq!!??
+// *********************************************************** //
 function MainHeader () {
     return Weact.cweate(
         "header", {
@@ -11,8 +14,10 @@ function MainHeader () {
                     padding: 2rem;`
         },
         [
-            wavbar({} [button()] )
+            wavbar({} [Button()] )
         ]
     );
 }
+// *********************************************************** //
+
 module.exports = MainHeader;
