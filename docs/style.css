@@ -1,28 +1,32 @@
 * {
-    box-sizing: border-box;
-    color: goldenrod;
-    margin: 0%;
-    padding: 0%;
+  box-sizing: border-box;
+  color: goldenrod;
+  margin: 0%;
+  padding: 0%;
 }
 
 body {
-    background-image: url("./img/dark-honeycomb.png");
+  background-image: url("./img/dark-honeycomb.png");
 }
 
 .footer {
-    background-image: "./img/hiclipart.com-id_qnvkp.png";
-    background-position: 50%, 100%;
+  background-image: "./img/hiclipart.com-id_qnvkp.png";
+  background-position: 50%, 100%;
 }
 
 .header {
-    font-size: 2rem;
-    padding: 1rem;
-    text-align: center;
+  font-size: 2rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.navbar {
+  background-color: black;
 }
 
 .queen {
-    width: 50%;
-    height: 50%;
-    margin-left: auto;
-    margin-right: auto;
+  width: 50%;
+  height: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
