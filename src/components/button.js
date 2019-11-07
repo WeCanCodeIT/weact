@@ -1,7 +1,7 @@
 const Weact = require("../libs/weact");
 
-const button = function(attributes, content) {
-    return Weact.cweate("button", attributes, content);
+const Button = function(attributes, content) {
+    return Weact.cweate("Button", attributes, content);
   };
-  
-  module.exports = button;
+
+module.exports = Button;

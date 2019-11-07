@@ -4,18 +4,18 @@ module.exports = {
         parent.append(child);
     },
     cweate(element, attributes = {}, content) {
-      const cweatedElement = document.createElement(element);
+      const createdElement = document.createElement(element);
   
       for (key in attributes) {
         if (key.startsWith("on")) {
-          cweatedElement[key] = attributes[key];
+          createdElement[key] = attributes[key];
         } else {
-          cweatedElement.setAttribute(key, attributes[key]);
+          createdElement.setAttribute(key, attributes[key]);
         }
       }
   
       if (typeof content === "string") {
-        cweatedElement.innerHTML = content;
+        createdElement.innerHTML = content;
       } else if (content instanceof HTMLElement) {
         createdElement.append(content);
       } else if (content instanceof Array) {

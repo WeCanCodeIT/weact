@@ -15,6 +15,17 @@ body {
 /* .button {
   
 } */
+.add{
+  display: flex;
+  flex-direction: row-reverse;
+  
+
+}
+.ArtistCard {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
 
 .footer {
   background-image: "./img/hiclipart.com-id_qnvkp.png";
@@ -36,8 +47,8 @@ body {
 }
 
 .queen {
-  width: 30%;
-  height: 50%;
+  width: 40%;
+  height: 40%;
   margin-left: auto;
   margin-right: auto;
   bottom: 0;
