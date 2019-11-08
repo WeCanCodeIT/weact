@@ -12,9 +12,10 @@ body {
   background-image: url("./img/dark-honeycomb.png");
 }
 
-/* .button {
-  
-} */
+.button {
+  padding: 1rem;
+}
+
 .add{
   display: flex;
   flex-direction: row-reverse;
