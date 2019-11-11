@@ -2,6 +2,9 @@ const Weact = require("../../libs/weact");
 const Http = require("../../utils/http");
 const Button = require("../Button");
 const artistCard = require("../ArtistCard")
+const appContainer = document.querySelector(".app");
+const deleteButton = require("../deleteButton");
+
 
 async function handleSubmit(event) {
   event.preventDefault();
@@ -22,9 +25,7 @@ async function handleSubmit(event) {
     .then(response => {
       return renderAllArtist()
     })
-    .then(artist => {
-      console.log(artist);
-    });
+   
 }
 
 function ArtistForm() {
@@ -33,7 +34,7 @@ function ArtistForm() {
   return Weact.cweate("form", { onsubmit: handleSubmit }, [
     Weact.cweate(
       "input",
-      { class: "artist-name", placeholder: "Name", type: "text" },
+      { class: "artist-name", placeholder: "Artist Name", type: "text" },
       ""
     ),
 
@@ -45,18 +46,19 @@ function ArtistForm() {
 
     Button({ type: "submit" }, "Submit")
   ]);
-  async function renderAllArtist(){
-    const artistResponse = await Http.getRequest(
-      "http://localhost:3000/artists"
-    )
-    const responseArtists = await artistResponse.artists.map(artist => {
-       console.log(artist)})
-    return responseArtists;
-    }
 }
-
-
-
-
-
+async function renderAllArtist(){
+  const artistResponse = await Http.getRequest(
+    "http://localhost:3000/artists",
+   (response) =>{
+    const newArr = response;
+    const artistArray = newArr.artists;
+    artistArray.forEach(item =>{
+      Weact.wender(appContainer, Button( {class: "button", id: item._id, onclick:()=> deleteButton(item._id, item.name)},
+      "delete"))
+     let name = Weact.cweate("section", {class: `artist-card__name`, id : item.name},item.name)
+     Weact.wender(appContainer,name )
+    })
+  })
+}
 module.exports = ArtistForm;
