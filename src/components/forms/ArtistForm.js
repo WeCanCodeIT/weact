@@ -1,6 +1,7 @@
 const Weact = require("../../libs/weact");
 const Http = require("../../utils/http");
 const Button = require("../Button");
+const artistCard = require("../ArtistCard")
 
 async function handleSubmit(event) {
   event.preventDefault();
@@ -19,7 +20,7 @@ async function handleSubmit(event) {
     })
   })
     .then(response => {
-      return response.json();
+      return renderAllArtist()
     })
     .then(artist => {
       console.log(artist);
@@ -28,6 +29,7 @@ async function handleSubmit(event) {
 
 function ArtistForm() {
   document.querySelector(".container").innerHTML = "";
+  
   return Weact.cweate("form", { onsubmit: handleSubmit }, [
     Weact.cweate(
       "input",
@@ -43,6 +45,18 @@ function ArtistForm() {
 
     Button({ type: "submit" }, "Submit")
   ]);
+  async function renderAllArtist(){
+    const artistResponse = await Http.getRequest(
+      "http://localhost:3000/artists"
+    )
+    const responseArtists = await artistResponse.artists.map(artist => {
+       console.log(artist)})
+    return responseArtists;
+    }
 }
+
+
+
+
 
 module.exports = ArtistForm;

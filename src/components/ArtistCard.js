@@ -1,6 +1,6 @@
 const Weact = require("../libs/weact");
 
-const imageUrl = document.querySelector(".artist-image-url").value;
+// const imageUrl = document.querySelector(".artist-image-url").value;
 
 function ArtistCard(artist) {
     return Weact.cweate("section", {class: `artist-card`}, artist.name),
@@ -11,5 +11,6 @@ function ArtistCard(artist) {
     ),
     Weact.cweate("section", {class: `artist-card__album`}, artist.album)
 }
+
 
 module.exports = ArtistCard;

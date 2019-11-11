@@ -7,6 +7,8 @@ const ArtistForm = require("./components/forms/ArtistForm");
 const footer = document.createElement("footer");
 const queenBee = document.createElement("img");
 
+
+
 //ARTIST BUTTON AREA DOMAIN AREA PART
 const artistButton = Button(
   { class: "button", onclick: renderForm },
@@ -20,8 +22,9 @@ Weact.wender(appContainer, albumButton);
 Weact.wender(appContainer, songButton);
 
 function renderForm() {
-  Weact.wender(container, ArtistForm());
+  Weact.wender(appContainer, ArtistForm());
 }
+
 
 const header = Weact.cweate(
   "h2",
