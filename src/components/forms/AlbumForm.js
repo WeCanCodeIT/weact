@@ -1,6 +1,7 @@
 const Weact = require("../../libs/weact");
 const Http = require("../../utils/http");
 const Button = require("../Button");
+const BACKEND_URL = "http://localhost:3000/"
 
 async function handleSubmit(event) {
 event.preventDefault();
@@ -21,39 +22,31 @@ event.preventDefault();
     });
 }
 async function ArtistDropDown () {
+    // Brad WOrking on this, js lawd.
+    const artistRes = await fetch(BACKEND_URL+"artists", {
+        method: 'GET',
+        headers: "Accept: application/json"
+    });
+    const artists = await artistRes.json();
+    console.log(artists);
     const artistResponse = await Http.getRequest(
         "http://localhost:3000/artists",
-       (response) =>{
-        const newArr = response;
-        const artistArray = newArr.artists;
-        const artistNames = artistArray.names;
-        console.log(artistArray)
-        // artistArray.forEach(item =>{
-        //   Weact.wender(appContainer, Button( {class: "button", id: item._id, onclick:()=> deleteButton(item._id, item.name)},
-        //   "delete"))
-        //  let name = Weact.cweate("section", {class: `artist-card__name`, id : item.name},item.name)
-        //  Weact.wender(appContainer,name )
-        // })
-      })
-    }
-
-        // return Weact.cweate("select", { class: "artist-id" }, artistOptionElements);
-  
+       async (response) =>{
+        const {artistResponse} = await response.artists;
+     
+        console.log(artistResponse)
         
-        // (response)=>{
-        //     const artists = response.artists
-        //     artists.forEach(artist =>{
-        //         console.log(artist)      
-        //         return Weact.cweate("option", { value: artist._id }, artist.name);
-        //     })
-    //     }
-    //     ); 
-    // };
+        const artistOptionElements = await artistResponse.map(artist => {
+            return Weact.cweate("option", { value: "artist._id" }, artist.name);
+          });
+      
+          return await Weact.cweate("select", { class: "artist-id" }, await artistOptionElements);
+        })
+        
+      }
+    
 
    
-
-
-
 async function AlbumForm() {
     document.querySelector(".container").innerHTML = "";
 
