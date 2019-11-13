@@ -47,6 +47,7 @@ function ArtistForm() {
     Button({ type: "submit" }, "Submit")
   ]);
 }
+
 async function renderAllArtist(){
   const artistResponse = await Http.getRequest(
     "http://localhost:3000/artists",
