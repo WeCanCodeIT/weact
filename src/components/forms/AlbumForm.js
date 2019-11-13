@@ -1,68 +1,70 @@
 const Weact = require("../../libs/weact");
 const Http = require("../../utils/http");
 const Button = require("../Button");
+const BACKEND_URL = "http://localhost:3000/"
 
-async function handleSubmit(event) {
-event.preventDefault();
 
-    const title = document.querySelector(".album-title").value;
-    const genre = document.querySelector(".album-genre").value;
-    const year = document.querySelector(".album-year").value;
-    const response  = await fetch (`http://localhost:3000/albums`, {
-        method: "POST", 
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            title,
-            genre,
-            year
+
+async function getArtists() {
+    const artistsResponse = await fetch(
+      "http://localhost:3000/artists", {
+        mode: "cors",
+        method: "GET",
+        headers: {"Accept": "application/json"}
         })
-    });
-}
-async function ArtistDropDown () {
-    const artistResponse = await Http.getRequest(
-        "http://localhost:3000/artists",
-       (response) =>{
-        const newArr = response;
-        const artistArray = newArr.artists;
-        const artistNames = artistArray.names;
-        console.log(artistArray)
-        // artistArray.forEach(item =>{
-        //   Weact.wender(appContainer, Button( {class: "button", id: item._id, onclick:()=> deleteButton(item._id, item.name)},
-        //   "delete"))
-        //  let name = Weact.cweate("section", {class: `artist-card__name`, id : item.name},item.name)
-        //  Weact.wender(appContainer,name )
-        // })
-      })
-    }
 
-        // return Weact.cweate("select", { class: "artist-id" }, artistOptionElements);
-  
+        const allArtists = await artistsResponse.json();
+        return allArtists
+        }
+
+async function ArtistDropDown() {
+
+    const allArtists = await getArtists();
+    console.log(allArtists.artists[0].name)
+
+    const artistOptionElements = allArtists.artists.map(artist => {
+        return Weact.cweate("option", { value: artist._id }, artist.name);
+        });
+    
+        return Weact.cweate("select", { class: "artist-id" }, artistOptionElements);
+        }
         
-        // (response)=>{
-        //     const artists = response.artists
-        //     artists.forEach(artist =>{
-        //         console.log(artist)      
-        //         return Weact.cweate("option", { value: artist._id }, artist.name);
-        //     })
-    //     }
-    //     ); 
-    // };
-
-   
-
-
 
 async function AlbumForm() {
+   async function handleSubmit(event) {
+        event.preventDefault();
+        
+            const title = document.querySelector(".album-title").value;
+            const genre = document.querySelector(".album-genre").value;
+            const year = document.querySelector(".album-year").value;
+            const artistId = document.querySelector(".artist-id").value;
+        
+            const response  = await fetch (`http://localhost:3000/albums`, {
+                method: "POST", 
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    title,
+                    genre,
+                    year,
+                    artistId
+                })
+            })
+            .then(response => {
+                console.log(response)
+                document.querySelector(".container").innerHTML = "";
+                return response.json();
+            })
+            
+        }
     document.querySelector(".container").innerHTML = "";
 
     return Weact.cweate("form", { onsubmit: handleSubmit}, [
     Weact.cweate(
-        
         "input",
         { class: "album-title", 
-        placeholder: "Lemonade", 
+        placeholder: "Album Title", 
         type: "text"
         },
         ""
@@ -71,7 +73,7 @@ async function AlbumForm() {
     Weact.cweate(
         "input", 
         { class: "album-genre", 
-        placeholder: "R&B" , 
+        placeholder: "Genre" , 
         type: "text"
         },
         ""
@@ -80,11 +82,12 @@ async function AlbumForm() {
     Weact.cweate(
      "input", 
         { class: "album-year",
-        placeholder: "2016",
+        placeholder: "Year Released",
         type: "text"
         },
         ""   
     ),
+    
     await ArtistDropDown(),
     Button({ type: "submit" }, "Submit")
 ]);

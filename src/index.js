@@ -25,8 +25,8 @@ Weact.wender(appContainer, songButton);
 function renderArtistForm() {
   Weact.wender(document.querySelector(".container"), ArtistForm());
 }
-function renderAlbumForm() {
-  Weact.wender(document.querySelector(".container"), AlbumForm());
+async function renderAlbumForm() {
+  Weact.wender(document.querySelector(".container"), await AlbumForm());
 }
 
 

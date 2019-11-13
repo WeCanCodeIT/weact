@@ -52,6 +52,7 @@ function ArtistForm() {
   ]);
  
 }
+
 async function renderAllArtist(){
   
   const artistResponse = await Http.getRequest(
