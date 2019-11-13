@@ -1,6 +1,6 @@
 const Weact = require("../libs/weact");
-const button = require("./button");
-const wavbar = require("./wavbar");
+const Button = require("./Button");
+const wavbar = require("./navbar");
 
 function MainHeader () {
     return Weact.cweate(
@@ -11,8 +11,9 @@ function MainHeader () {
                     padding: 2rem;`
         },
         [
-            wavbar({} [button()] )
+            wavbar({} [Button()] )
         ]
     );
 }
+
 module.exports = MainHeader;
