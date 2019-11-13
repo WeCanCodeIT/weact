@@ -30,8 +30,8 @@ function renderAlbumForm() {
   Weact.wender(document.querySelector(".container"), AlbumForm());
 }
 
-function renderSongForm() {
-  Weact.wender(document.querySelector(".container"), SongForm());
+async function renderSongForm() {
+  Weact.wender(document.querySelector(".container"), await SongForm());
 }
 
 

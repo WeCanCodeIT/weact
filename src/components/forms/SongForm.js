@@ -15,6 +15,19 @@ async function getArtists() {
   const artists = await artistRes.json();
   return artists;
 }
+function ArtistDropdown(artists) {
+  const artistList = []
+  artists.artists.map(artist => {
+    artistList.push(Weact.cweate("option", {
+      class: "artist-option",
+      value: artist._id,
+      onselect: () => {AlbumDropdown}
+    },
+    artist.name
+    ))
+  })
+  return artistList;
+}
 
 async function getAlbums(artists) {
   const albumRes = await fetch(API_URL + "albums", {
@@ -29,19 +42,6 @@ async function getAlbums(artists) {
   const songs = albums.songs;
   console.log(albums, songs);
   return albums;
-}
-
-function ArtistDropdown(artists=[]) {
-  const artistList = []
-  artists.map(artist => {
-    artistList.push(Weact.cweate("option", {
-      class: "artist-option",
-      value: artist._id,
-      onselect: () => {AlbumDropdown}
-    },
-    artist.name
-    ))
-  })
 }
 
 async function handleSubmit(event) {
@@ -62,16 +62,19 @@ async function handleSubmit(event) {
       link
     })
   });
-},
+}
 
 
 async function SongForm() {
+  document.querySelector(".container").innerHTML = "";
   const res = await getArtists();
+  const artistList = ArtistDropdown(res);
+  return Weact.cweate("form", { onsubmit: handleSubmit }, 
+    Weact.cweate("select", { class: "selection"}, artistList)
+  )
+
   console.log(res)
   
-  
-
-  document.querySelector(".container").innerHTML = "";
 
   
 
@@ -81,7 +84,6 @@ async function SongForm() {
       { class: "song-title", placeholder: "Say My Name", type: "text" },
       ""
     ),
-
     Weact.cweate(
       "input",
       {
