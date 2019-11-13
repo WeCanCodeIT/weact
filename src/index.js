@@ -4,7 +4,8 @@ const Button = require("./components/Button");
 const appContainer = document.querySelector(".app");
 const adCreator = require("./components/Ad");
 const ArtistForm = require("./components/forms/ArtistForm");
-const AlbumForm = require("./components/forms/AlbumForm")
+const AlbumForm = require("./components/forms/AlbumForm");
+const SongForm = require('./components/forms/SongForm');
 const footer = document.createElement("footer");
 const queenBee = document.createElement("img");
 
@@ -16,7 +17,7 @@ const artistButton = Button(
   "artists"
 );
 const albumButton = Button({ class: "button", onclick: renderAlbumForm }, "albums");
-const songButton = Button({ class: "button", onclick: renderArtistForm }, "songs");
+const songButton = Button({ class: "button", onclick: renderSongForm }, "songs");
 
 Weact.wender(appContainer, artistButton);
 Weact.wender(appContainer, albumButton);
@@ -29,6 +30,9 @@ function renderAlbumForm() {
   Weact.wender(document.querySelector(".container"), AlbumForm());
 }
 
+function renderSongForm() {
+  Weact.wender(document.querySelector(".container"), SongForm());
+}
 
 
 

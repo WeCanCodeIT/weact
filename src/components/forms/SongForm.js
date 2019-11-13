@@ -1,6 +1,48 @@
 const Weact = require("../../libs/weact");
 const Http = require("../../utils/http");
 const Button = require("../Button");
+const API_URL = "http://localhost:3000/";
+
+async function getArtists() {
+  const artistRes = await fetch(API_URL + "artists", {
+    method: "GET",
+    mode: "cors",
+    cache: "no-cache",
+    headers: {
+      "Accept": "application/json"
+    }
+  })
+  const artists = await artistRes.json();
+  return artists;
+}
+
+async function getAlbums(artists) {
+  const albumRes = await fetch(API_URL + "albums", {
+    method: "GET",
+    mode: "cors",
+    cache: "no-cache",
+    headers: {
+      "Accept": "application/json"
+    }
+  })
+  const albums = await albumRes.json();
+  const songs = albums.songs;
+  console.log(albums, songs);
+  return albums;
+}
+
+function ArtistDropdown(artists=[]) {
+  const artistList = []
+  artists.map(artist => {
+    artistList.push(Weact.cweate("option", {
+      class: "artist-option",
+      value: artist._id,
+      onselect: () => {AlbumDropdown}
+    },
+    artist.name
+    ))
+  })
+}
 
 async function handleSubmit(event) {
   const title = document.querySelector(".song-title").value;
@@ -10,8 +52,9 @@ async function handleSubmit(event) {
 
   const response = await fetch(`http://localhost:3000/songs`, {
     method: "POST",
+    mode: "cors",
     headers: {
-      "Content-Type": "application/json"
+      "Accept": "application/json"
     },
     body: JSON.stringify({
       title,
@@ -19,10 +62,19 @@ async function handleSubmit(event) {
       link
     })
   });
-}
+},
 
-function SongForm() {
+
+async function SongForm() {
+  const res = await getArtists();
+  console.log(res)
+  
+  
+
   document.querySelector(".container").innerHTML = "";
+
+  
+
   return Weact.cweate("form", { onsubmit: handleSubmit }, [
     Weact.cweate(
       "input",
@@ -42,12 +94,13 @@ function SongForm() {
 
     Weact.cweate(
       "input",
-      { class: "song-link", placeholder: "Link to Song", type: "text" },
+      { class: "song-link", onchange: "Link to Song", type: "text" },
       ""
     ),
 
     Button({ type: "submit" }, "Submit")
   ]);
+
 }
 
 module.exports = SongForm;
