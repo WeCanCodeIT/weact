@@ -1,15 +1,18 @@
-@import url('https://fonts.googleapis.com/css?family=Cinzel|Cormorant+Garamond|Cuprum|Poiret+One|Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cairo|Supermercado+One|Cinzel|Cormorant+Garamond|Cuprum|Poiret+One|Sacramento&display=swap');
 
 * {
   box-sizing: border-box;
   color: goldenrod;
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   background-color: darkgray;
   background-image: url("./img/dark-honeycomb.png");
+  /* display: flex; */
+  padding: 0;
+  
 }
 
 .button {
@@ -25,10 +28,11 @@ body {
 .ArtistCard {
   display: flex;
   flex-wrap: wrap;
-  padding: 2rem;
+
 }
 
 .footer {
+
   background-image: "./img/hiclipart.com-id_qnvkp.png";
   background-position: 50%, 100%;
 }
@@ -40,13 +44,31 @@ body {
 }
 
 .navbar {
+  display: flex;
+  justify-content: space-evenly;
   position: sticky;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.719);
+  width: 100%;
+
+  background-color: rgba(0, 0, 0, 0.534);
   font-family: 'Poiret One', sans-serif;
-  padding: .8rem;
+  padding: .2rem;
 }
 
+.header-queen{
+  font-size: 3rem;
+  font-family: 'Supermercado One', Sans-serif;
+  padding: 0 0 0 1rem;
+  margin: 0;
+  font-weight: normal;
+}
+.header-flavor {
+  color: white;
+  font-size: .8rem;
+  font-family: Cinzel, sans-serif;
+  font-style: italic;
+  padding: .5rem;
+}
 .queen {
   width: 40%;
   height: 40%;
@@ -54,5 +76,62 @@ body {
   margin-right: auto;
   bottom: 0;
   position: fixed;
-  z-index: -10;
+  z-index: 100;
 }
+.container{
+  text-align: center;
+  display: block;
+  margin: 60px auto;
+ 
+  box-shadow: 0 5px 40px rgba(0,0,0,0.2);
+  width: 90%;
+  
+
+}
+.container> form{
+  grid-column: auto;
+  grid-row:1;
+}
+.container> .artist-card{
+  display:flex;
+  flex-direction: column;
+  margin: 0 auto;
+  top: -50px;
+  height: 100%;
+  width: 90%;
+  flex-direction: column-reverse;
+  
+}
+
+.artist-card>.button{
+  display: flex;
+  flex-direction: row-reverse;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  
+
+  
+}
+.artist-card> section{
+  text-align: center;
+  font-size: 30px;
+
+}
+.nav-button {
+  background-color: rgba(255, 255, 255, 0);
+  border-style: none;
+  color: yellow;
+  font-family: Cairo, sans-serif;
+  font-size: 1.2rem;
+}
+.nav-button:hover {
+  border-bottom: 1px solid white;
+  transition-duration: .7s;
+  content: ">>";
+  color: white;
+  font-size: 140%;
+}
+
+
+
+

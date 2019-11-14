@@ -12,15 +12,10 @@ const queenBee = document.createElement("img");
 
 //BUTTON AREA DOMAIN AREA PART
 const artistButton = Button(
-  { class: "button", onclick: renderArtistForm },
-  "artists"
-);
-const albumButton = Button({ class: "button", onclick: renderAlbumForm }, "albums");
-const songButton = Button({ class: "button", onclick: renderArtistForm }, "songs");
+  { class: "nav-button", onclick: renderArtistForm },"Artists");
+const albumButton = Button({ class: "nav-button", onclick: renderAlbumForm }, "Albums");
+const songButton = Button({ class: "nav-button", onclick: renderArtistForm }, "Songs");
 
-Weact.wender(appContainer, artistButton);
-Weact.wender(appContainer, albumButton);
-Weact.wender(appContainer, songButton);
 
 function renderArtistForm() {
   Weact.wender(document.querySelector(".container"), ArtistForm());
@@ -34,35 +29,38 @@ async function renderAlbumForm() {
 
 const header = Weact.cweate(
   "h2",
-  {},
-  "Hola Mundo, vamos a prometir nuestrue vida a la Reyna Beyonce"
-);
-const wavbar = Weact.cweate(
-  "nav",
-  {
-    style: "color: white",
-    classname: "navbar",
-    onmouseover: "onHoverBeyonce()"
-  },
-  "Awo yo, we got a wav bar wow witches"
-);
-
-let container = Weact.cweate("section", { class: "container" }, "");
-
-const Ad = adCreator({ classname: "add" }, "Programer hate this one trick");
-
-// wavbar.classList.add("navbar");
-footer.classList.add("footer");
-queenBee.src = "./img/hiclipart.com-id_qnvkp.png";
-queenBee.classList.add("queen");
-
-Weact.wender(appContainer, wavbar);
-Weact.wender(wavbar, header);
-Weact.wender(appContainer, footer);
-Weact.wender(appContainer, Ad);
-Weact.wender(appContainer, container);
-Weact.wender(appContainer, queenBee);
-
+  {class: "header-queen"},
+  "Queen Bee Catalog"
+  );
+  const wavbar = Weact.cweate(
+    "nav",
+    { class: "navbar", onmouseover: "onHoverBeyonce()"},
+    ""
+    );
+  
+  const flavor = Weact.cweate("h3", {class: "header-flavor"}, "Your number one source for the queen")
+    
+    let container = Weact.cweate("section", { class: "container" }, "");
+    
+    const Ad = adCreator({ class: "ad" }, "Programer hate this one trick");
+    
+    // wavbar.classList.add("navbar");
+    
+    queenBee.src = "./img/hiclipart.com-id_qnvkp.png";
+    queenBee.classList.add("queen");
+    
+    Weact.wender(appContainer, wavbar);
+    Weact.wender(wavbar, flavor)
+    Weact.wender(wavbar, header);
+    Weact.wender(appContainer, footer);
+    Weact.wender(appContainer, Ad);
+    Weact.wender(appContainer, container);
+    Weact.wender(appContainer, queenBee);
+    
+    // BUTTONS
+    Weact.wender(wavbar, artistButton);
+    Weact.wender(wavbar, albumButton);
+    Weact.wender(wavbar, songButton);
 wavbar.onmouseover = function onHoverBeyonce() {
   queenBee.src = "./img/beyonce-happy.png";
 };
