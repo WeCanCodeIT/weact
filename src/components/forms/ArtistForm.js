@@ -5,7 +5,7 @@ const artistCard = require("../ArtistCard");
 const appContainer = document.querySelector(".app");
 const deleteButton = require("../deleteButton");
 const updateButton = require("../updateButton");
-
+const renderAll = require("../renderAll");
 
 async function handleSubmit(event) {
   event.preventDefault();
@@ -24,14 +24,14 @@ async function handleSubmit(event) {
     })
   })
     .then(response => {
-      return renderAllArtist()
+      return renderAll()
     })
    
 }
 
 function ArtistForm() {
   document.querySelector(".container").innerHTML = "";
-  
+  renderAll();
   return Weact.cweate("form", { onsubmit: handleSubmit }, [
     Weact.cweate(
       "input",
@@ -53,27 +53,5 @@ function ArtistForm() {
  
 }
 
-async function renderAllArtist(){
-  
-  const artistResponse = await Http.getRequest(
-    "http://localhost:3000/artists",
-   (response) =>{
-     
-    const newArr = response;
-    const artistArray = newArr.artists;
-    artistArray.forEach(item =>{
-      const section = Weact.cweate( "section",
-  { class: item._id, placeholder: "Artist Name", type: "text" },
- ""
-)
-      Weact.wender(section, Button( {class: "button", id: item._id, onclick:()=> deleteButton(item._id, item.name)},
-      "delete"))
-      Weact.wender(section, Button( {class: "button", id: item._id, onclick:()=> updateButton(item._id)},
-      "update"))
-     let name = Weact.cweate("section", {class:item.name, id : item.name},item.name)
-     Weact.wender(section,name )
-     Weact.wender(appContainer,section)
-    })
-  })
-}
+
 module.exports = ArtistForm;
