@@ -29,10 +29,8 @@ async function handleSubmit(event) {
 function ArtistForm() {
   document.querySelector(".container").innerHTML = "";
 
-  return;
-
-  Weact.cweate("h2", { class: "artist-title" });
-  Weact.cweate(
+  //Weact.cweate("h2", { class: "artist-title" });
+  return Weact.cweate(
     "form",
     { onsubmit: handleSubmit },
     [
