@@ -77,5 +77,3 @@ wavbar.onmouseover = function onHoverBeyonce() {
 wavbar.onmouseout = function onOutBeyonce() {
   queenBee.src = "./img/hiclipart.com-id_qnvkp.png";
 };
-
-//Landing Page for Development
