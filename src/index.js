@@ -4,7 +4,8 @@ const Button = require("./components/Button");
 const appContainer = document.querySelector(".app");
 const adCreator = require("./components/Ad");
 const ArtistForm = require("./components/forms/ArtistForm");
-const AlbumForm = require("./components/forms/AlbumForm")
+const AlbumForm = require("./components/forms/AlbumForm");
+const SongForm = require('./components/forms/SongForm');
 const footer = document.createElement("footer");
 const queenBee = document.createElement("img");
 
@@ -12,18 +13,29 @@ const queenBee = document.createElement("img");
 
 //BUTTON AREA DOMAIN AREA PART
 const artistButton = Button(
+<<<<<<< HEAD
   { class: "nav-button", onclick: renderArtistForm },"Artists");
 const albumButton = Button({ class: "nav-button", onclick: renderAlbumForm }, "Albums");
 const songButton = Button({ class: "nav-button", onclick: renderArtistForm }, "Songs");
+=======
+  { class: "button", onclick: renderArtistForm },
+  "artists"
+);
+const albumButton = Button({ class: "button", onclick: renderAlbumForm }, "albums");
+const songButton = Button({ class: "button", onclick: renderSongForm }, "songs");
+>>>>>>> 3816d759c77a87bea72f7eab6cfe312d80b0bf4a
 
 
 function renderArtistForm() {
   Weact.wender(document.querySelector(".container"), ArtistForm());
 }
-async function renderAlbumForm() {
-  Weact.wender(document.querySelector(".container"), await AlbumForm());
+function renderAlbumForm() {
+  Weact.wender(document.querySelector(".container"), AlbumForm());
 }
 
+async function renderSongForm() {
+  Weact.wender(document.querySelector(".container"), await SongForm());
+}
 
 
 
