@@ -19,7 +19,7 @@ const albumButton = Button(
   "Albums"
 );
 const songButton = Button(
-  { class: "nav-button", onclick: renderArtistForm },
+  { class: "nav-button", onclick: renderSongForm },
   "Songs"
 );
 
@@ -72,7 +72,7 @@ Weact.wender(wavbar, artistButton);
 Weact.wender(wavbar, albumButton);
 Weact.wender(wavbar, songButton);
 wavbar.onmouseover = function onHoverBeyonce() {
-  queenBee.src = "./img/beyonce-happy.png";
+  queenBee.src = "./img/queen-b-1.png";
 };
 wavbar.onmouseout = function onOutBeyonce() {
   queenBee.src = "./img/hiclipart.com-id_qnvkp.png";

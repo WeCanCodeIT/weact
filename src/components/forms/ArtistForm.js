@@ -74,6 +74,7 @@ async function renderAllArtist() {
           { class: `artist-card__name`, id: item.name },
           item.name
         );
+
         Weact.wender(document.querySelector(".container"), name);
       });
     }

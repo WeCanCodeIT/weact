@@ -52,7 +52,7 @@ body {
   position: sticky;
   top: 0;
   width: 100%;
-
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.842);
   background-color: rgba(0, 0, 0, 0.534);
   font-family: "Poiret One", sans-serif;
   padding: 0.2rem;
@@ -77,9 +77,14 @@ body {
   height: 40%;
   margin-left: auto;
   margin-right: auto;
-  bottom: 0;
+  bottom: -10px;
   position: fixed;
   z-index: 100;
+  transition: 0.5s;
+}
+.queen:hover {
+  bottom: 0px;
+  transition-duration: 0.4s;
 }
 .container {
   text-align: center;
@@ -126,6 +131,7 @@ body {
   color: yellow;
   font-family: Cairo, sans-serif;
   font-size: 1.2rem;
+  transition-duration: 0.3s;
 }
 .nav-button:hover {
   border-bottom: 1px solid white;
@@ -150,6 +156,6 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(231, 235, 1);
+  background: rgb(249, 250, 183);
   border-radius: 10px;
 }
