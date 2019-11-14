@@ -9,10 +9,11 @@ async function deleteItem(artistId, artistName){
     await fetch(path, {
       method: "DELETE"})
        let artistDed =  document.getElementById(artistId);
-       let artistNameDel=  document.getElementById(artistName);
-       artistDed.parentNode.removeChild(artistDed)
-       artistName.parentNode.removeChild(artistNameDel)
-
+       let sectionDelete = document.getElementById(artistName);
+       artistDed.parentNode.removeChild(artistDed);
+       sectionDelete.parentNode.removeChild(sectionDelete);
+   
+       document.getElementById(artistId).remove();
     }catch(err){
         console.log(err)
     }
