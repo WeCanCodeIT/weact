@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Cairo|Supermercado+One|Cinzel|Cormorant+Garamond|Cuprum|Poiret+One|Sacramento&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Cairo|Supermercado+One|Cinzel|Cormorant+Garamond|Cuprum|Poiret+One|Sacramento&display=swap");
 
 * {
   box-sizing: border-box;
@@ -12,27 +12,30 @@ body {
   background-image: url("./img/dark-honeycomb.png");
   /* display: flex; */
   padding: 0;
-  
 }
 
 .button {
   padding: 1rem;
 }
 
-.add{
+.add {
   display: flex;
   flex-direction: row-reverse;
-  
-
 }
 .ArtistCard {
   display: flex;
   flex-wrap: wrap;
+}
 
+.artist-card__name {
+  color: goldenrod;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1fr;
+  grid-auto-rows: minmax(100px, auto);
 }
 
 .footer {
-
   background-image: "./img/hiclipart.com-id_qnvkp.png";
   background-position: 50%, 100%;
 }
@@ -51,23 +54,23 @@ body {
   width: 100%;
 
   background-color: rgba(0, 0, 0, 0.534);
-  font-family: 'Poiret One', sans-serif;
-  padding: .2rem;
+  font-family: "Poiret One", sans-serif;
+  padding: 0.2rem;
 }
 
-.header-queen{
+.header-queen {
   font-size: 3rem;
-  font-family: 'Supermercado One', Sans-serif;
+  font-family: "Supermercado One", Sans-serif;
   padding: 0 0 0 1rem;
   margin: 0;
   font-weight: normal;
 }
 .header-flavor {
   color: white;
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-family: Cinzel, sans-serif;
   font-style: italic;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 .queen {
   width: 40%;
@@ -78,44 +81,44 @@ body {
   position: fixed;
   z-index: 100;
 }
-.container{
+.container {
   text-align: center;
   display: block;
   margin: 60px auto;
- 
-  box-shadow: 0 5px 40px rgba(0,0,0,0.2);
-  width: 90%;
-  
-
+  background-color: rgba(0, 0, 0, 0.493);
+  box-shadow: 0 5px 40px rgba(0, 0, 0, 0.842);
+  width: 700px;
+  max-height: 400px;
+  padding: 2rem;
+  overflow-y: scroll;
 }
-.container> form{
+.container > form {
   grid-column: auto;
-  grid-row:1;
+  grid-row: 1;
+  margin: 1rem 5rem 1rem 5rem;
 }
-.container> .artist-card{
-  display:flex;
+.container > form > input {
+  width: 7rem;
+}
+.container > .artist-card {
+  display: flex;
   flex-direction: column;
   margin: 0 auto;
   top: -50px;
   height: 100%;
   width: 90%;
   flex-direction: column-reverse;
-  
 }
 
-.artist-card>.button{
+.artist-card > .button {
   display: flex;
   flex-direction: row-reverse;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
-  
-
-  
 }
-.artist-card> section{
+.artist-card > section {
   text-align: center;
   font-size: 30px;
-
 }
 .nav-button {
   background-color: rgba(255, 255, 255, 0);
@@ -126,12 +129,8 @@ body {
 }
 .nav-button:hover {
   border-bottom: 1px solid white;
-  transition-duration: .7s;
+  transition-duration: 0.7s;
   content: ">>";
   color: white;
   font-size: 140%;
 }
-
-
-
-
