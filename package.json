@@ -1,0 +1,26 @@
+{
+  "name": "weact",
+  "version": "1.0.0",
+  "description": "front-end APP for Album Catalog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode development --content-base docs/ --open --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rcwilson/weact.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rcwilson/weact/issues"
+  },
+  "homepage": "https://github.com/rcwilson/weact#readme",
+  "dependencies": {
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  }
+}

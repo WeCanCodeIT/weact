@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css?family=Cairo|Supermercado+One|Cinzel|Cormorant+Garamond|Cuprum|Poiret+One|Sacramento&display=swap");
+
+* {
+  box-sizing: border-box;
+  color: goldenrod;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: darkgray;
+  background-image: url("./img/dark-honeycomb.png");
+  /* display: flex; */
+  padding: 0;
+}
+
+.button {
+  padding: 1rem;
+}
+
+.add {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.ArtistCard {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.artist-card__name {
+  color: goldenrod;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1fr;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.footer {
+  background-image: "./img/hiclipart.com-id_qnvkp.png";
+  background-position: 50%, 100%;
+}
+
+.header {
+  font-size: 4rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.842);
+  background-color: rgba(0, 0, 0, 0.534);
+  font-family: "Poiret One", sans-serif;
+  padding: 0.2rem;
+}
+
+.header-queen {
+  font-size: 3rem;
+  font-family: "Supermercado One", Sans-serif;
+  padding: 0 0 0 1rem;
+  margin: 0;
+  font-weight: normal;
+}
+.header-flavor {
+  color: white;
+  font-size: 0.8rem;
+  font-family: Cinzel, sans-serif;
+  font-style: italic;
+  padding: 0.5rem;
+}
+.queen {
+  width: 40%;
+  height: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: -10px;
+  position: fixed;
+  z-index: 100;
+  transition: 0.5s;
+}
+.queen:hover {
+  bottom: 0px;
+  transition-duration: 0.4s;
+}
+.container {
+  text-align: center;
+  display: block;
+  margin: 60px auto;
+  background-color: rgba(0, 0, 0, 0.493);
+  box-shadow: 0 5px 40px rgba(0, 0, 0, 0.842);
+  width: 700px;
+  max-height: 400px;
+  padding: 2rem;
+  overflow-y: scroll;
+}
+.container > form {
+  grid-column: auto;
+  grid-row: 1;
+  margin: 1rem 5rem 1rem 5rem;
+}
+.container > form > input {
+  width: 7rem;
+}
+.container > .artist-card {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  top: -50px;
+  height: 100%;
+  width: 90%;
+  flex-direction: column-reverse;
+}
+
+.artist-card > .button {
+  display: flex;
+  flex-direction: row-reverse;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+.artist-card > section {
+  text-align: center;
+  font-size: 30px;
+}
+.nav-button {
+  background-color: rgba(255, 255, 255, 0);
+  border-style: none;
+  color: yellow;
+  font-family: Cairo, sans-serif;
+  font-size: 1.2rem;
+  transition-duration: 0.3s;
+}
+.nav-button:hover {
+  border-bottom: 1px solid white;
+  transition-duration: 0.7s;
+  content: ">>";
+  color: white;
+  font-size: 140%;
+}
+
+/* SCROLL BAR */
+
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(56, 56, 56);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(249, 250, 183);
+  border-radius: 10px;
+}
